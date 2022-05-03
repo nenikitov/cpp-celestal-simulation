@@ -1,10 +1,15 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "body/Body.hpp"
+
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
+    Body planet(100, sf::Vector2f(100, 100));
+
+    sf::RenderWindow window(sf::VideoMode(500, 500), "Celestial Simulation");
+    sf::CircleShape shape(planet.getSize());
     shape.setFillColor(sf::Color::Green);
 
     while (window.isOpen())
