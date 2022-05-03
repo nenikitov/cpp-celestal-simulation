@@ -1,13 +1,13 @@
 ################
 ### Settings ###
 ################
-# Compiler
-CC = g++
-CFLAGS = --std=c++11
 # Program settings
 APPNAME = celestial-simulation
 EXT = .cpp
 DIRSRC = src
+# Compiler
+CC = g++
+CFLAGS = --std=c++11 -lsfml-graphics -lsfml-window -lsfml-system
 # Build settings
 CLEAN = true
 DIRINT = intermediate

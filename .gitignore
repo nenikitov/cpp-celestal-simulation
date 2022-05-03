@@ -1,2 +1,4 @@
-build
-.vs
+.vscode
+
+intermediate
+celestial-simulation
