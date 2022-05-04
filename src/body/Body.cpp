@@ -40,13 +40,23 @@ const sf::Shape& cs::Body::getShape() const
 
 void cs::Body::tick(double deltaTime)
 {
+    this->physicsTick(deltaTime);
+    this->graphicsTick();
+};
 
+void cs::Body::physicsTick(double deltaTime)
+{
+    this->position += this->acceleration;
+};
+
+void cs::Body::graphicsTick()
+{
+    this->shape.setPosition(cs::castVector<double, float>(this->position));
 };
 
 void cs::Body::applyForce(const cs::Vector2d& force)
 {
-    //this->acceleration += cs::multiplyScalar(this->getMass(), force);
-    cs::add<double>(10, Vector2d(0, 0));
+    this->acceleration += cs::multiplyVectorScalar(1 / this->getMass(), force);
 };
 
 

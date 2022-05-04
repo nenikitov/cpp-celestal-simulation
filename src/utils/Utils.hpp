@@ -9,10 +9,14 @@ namespace cs
 {
     typedef sf::Vector2<double> Vector2d;
 
-    // TODO figure out why templates do not work
     template <typename T>
-    Vector2d add(const double scalar, const Vector2d& Vector2d);
+    sf::Vector2<T> multiplyVectorScalar(const T& scalar, const sf::Vector2<T>& vector);
+
+    template <typename S, typename D>
+    sf::Vector2<D> castVector(const sf::Vector2<S>& vector);
 };
+
+#include "Utils.tpp"
 
 
 #endif

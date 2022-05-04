@@ -37,6 +37,9 @@ namespace cs
         private:
             inline static int getPointCount(float size);
             double getMass() const;
+
+            void physicsTick(double deltaTime);
+            void graphicsTick();
     };
 };
 
