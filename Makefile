@@ -7,7 +7,7 @@ EXT = .cpp
 DIRSRC = src
 # Compiler
 CC = g++
-CFLAGS = --std=c++17 -lsfml-graphics -lsfml-window -lsfml-system
+CFLAGS = --std=c++17 -I src -lsfml-graphics -lsfml-window -lsfml-system
 # Build settings
 CLEAN = true
 DIRINT = intermediate

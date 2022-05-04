@@ -2,11 +2,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "body/Body.hpp"
+#include "utils/Utils.hpp"
 
 
 int main()
 {
-    Body planet(128, sf::Vector2f(100, 100));
+    Body planet(128, cs::Vector2d(0, 0));
 
     sf::RenderWindow window(sf::VideoMode(500, 500), "Celestial Simulation");
 
