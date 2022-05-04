@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -7,7 +9,7 @@
 
 int main()
 {
-    Body planet(128, cs::Vector2d(0, 0));
+    cs::Body planet(128, cs::Vector2d(0, 0));
 
     sf::RenderWindow window(sf::VideoMode(500, 500), "Celestial Simulation");
 

@@ -5,7 +5,8 @@
 #include "Body.hpp"
 
 
-Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity)
+
+cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity)
     : size(size), position(position), density(density),
     velocity(velocity), acceleration(0, 0),
     shape(size, Body::getPointCount(size))
@@ -20,35 +21,36 @@ Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d velo
 };
 
 
-Body::Body(double size, cs::Vector2d position, double density)
+cs::Body::Body(double size, cs::Vector2d position, double density)
     : Body(size, density, position, cs::Vector2d(0, 0))
 {
 };
 
-Body::Body(double size, cs::Vector2d position)
+cs::Body::Body(double size, cs::Vector2d position)
     : Body(size, position, 1)
 {};
 
 
 
-const sf::Shape& Body::getShape() const
+const sf::Shape& cs::Body::getShape() const
 {
     return this->shape;
 };
 
 
-void Body::tick(double deltaTime)
+void cs::Body::tick(double deltaTime)
 {
 
 };
 
-void Body::applyForce(const cs::Vector2d& force)
+void cs::Body::applyForce(const cs::Vector2d& force)
 {
-    this->acceleration += cs::Vector2d(force.x / this->getMass(), force.y / this->getMass());
+    //this->acceleration += cs::multiplyScalar(this->getMass(), force);
+    cs::add<double>(10, Vector2d(0, 0));
 };
 
 
-double Body::getMass() const
+double cs::Body::getMass() const
 {
     return this->size * this->density;
 };
@@ -58,7 +60,7 @@ double Body::getMass() const
 
 
 
-int Body::getPointCount(float size)
+int cs::Body::getPointCount(float size)
 {
     return std::min(
         Body::MAX_VERTICES,

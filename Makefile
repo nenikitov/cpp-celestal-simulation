@@ -30,7 +30,7 @@ DEP = $(OBJ:$(DIROBJ)/%.o=$(DIRDEP)/%.d)
 #############
 # Build the app
 $(APPNAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $^ -o $@
 
 # Create dependency rules
 DIRDEP/%.d: $(SRCDIR)/%$(EXT)
@@ -41,7 +41,7 @@ DIRDEP/%.d: $(SRCDIR)/%$(EXT)
 # Build object files
 $(DIROBJ)/%.o: $(DIRSRC)/%$(EXT)
 	mkdir -p "$(shell dirname $@)"
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 
