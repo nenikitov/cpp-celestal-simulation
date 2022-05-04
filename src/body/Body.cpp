@@ -59,7 +59,7 @@ void cs::Body::graphicsTick()
 
 void cs::Body::applyForce(const cs::Vector2d& force, double deltaTime)
 {
-    this->acceleration += cs::vectorMultiplyByScalar(deltaTime / this->getMass(), force);
+    this->acceleration = cs::vectorMultiplyByScalar(deltaTime / this->getMass(), force);
 };
 
 

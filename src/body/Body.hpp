@@ -31,7 +31,7 @@ namespace cs
             void graphicsTick();
 
         private:
-            inline static const int RES_VERTICES = 2;
+            inline static const int RES_VERTICES = 4;
             inline static const int MIN_VERTICES = 3;
             inline static const int MAX_VERTICES = 256;
 
