@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 
 #include "Body.hpp"
 
@@ -8,7 +7,7 @@
 
 cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity)
     : size(size), position(position), density(density),
-    velocity(velocity), acceleration(0, 0),
+    velocity(0, 0), acceleration(velocity),
     shape(size, Body::getPointCount(size))
 {
     this->shape.setOrigin(size, size);
@@ -19,7 +18,7 @@ cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d 
         55 + rand() % 200
     ));
 
-    this->shape.setPosition(cs::castVector<double, float>(this->position));
+    this->shape.setPosition(cs::vectorCast<double, float>(this->position));
 };
 
 
@@ -37,6 +36,10 @@ cs::Body::Body(double size, cs::Vector2d position)
 
 
 
+const cs::Vector2d& cs::Body::getPosition() const
+{
+    return this->position;
+};
 const sf::Shape& cs::Body::getShape() const
 {
     return this->shape;
@@ -45,18 +48,18 @@ const sf::Shape& cs::Body::getShape() const
 
 void cs::Body::physicsTick(double deltaTime)
 {
-    this->velocity += cs::multiplyVectorScalar(deltaTime, this->acceleration);
+    this->velocity += cs::vectorMultiplyByScalar(deltaTime, this->acceleration);
     this->position += this->velocity;
 };
 
 void cs::Body::graphicsTick()
 {
-    this->shape.setPosition(cs::castVector<double, float>(this->position));
+    this->shape.setPosition(cs::vectorCast<double, float>(this->position));
 };
 
-void cs::Body::accelerate(const cs::Vector2d& force, double deltaTime)
+void cs::Body::applyForce(const cs::Vector2d& force, double deltaTime)
 {
-    this->acceleration += cs::multiplyVectorScalar(deltaTime / this->getMass(), force);
+    this->acceleration += cs::vectorMultiplyByScalar(deltaTime / this->getMass(), force);
 };
 
 

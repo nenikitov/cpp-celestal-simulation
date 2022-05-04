@@ -20,9 +20,11 @@ namespace cs
             Body(double size, cs::Vector2d position);
             Body() = delete;
 
+            const cs::Vector2d& getPosition() const;
             const sf::Shape& getShape() const;
 
-            void accelerate(const cs::Vector2d& force, double deltaTime);
+            double getMass() const;
+            void applyForce(const cs::Vector2d& force, double deltaTime);
 
         protected:
             void physicsTick(double deltaTime);
@@ -41,8 +43,6 @@ namespace cs
             sf::CircleShape shape;
         private:
             inline static int getPointCount(float size);
-
-            double getMass() const;
     };
 };
 

@@ -12,8 +12,9 @@
 int main()
 {
     cs::Universe universe({
-        cs::Body(128, cs::Vector2d(480, 500)),                      // Big
-        cs::Body(20, cs::Vector2d(900, 500), cs::Vector2d(0, -1))   // Small
+        cs::Body(128, cs::Vector2d(480, 500)),                        // Big
+        cs::Body(10,  cs::Vector2d(700, 500), cs::Vector2d(0, -2)),   // Small
+        cs::Body(3,   cs::Vector2d(740, 400), cs::Vector2d(0, 0))    // Smallest
     });
 
     sf::RenderWindow window(sf::VideoMode(960, 1080), "Celestial Simulation");
@@ -30,7 +31,7 @@ int main()
         }
 
 
-        universe.tick(1);
+        universe.tick(0.00001);
 
 
         window.clear();
