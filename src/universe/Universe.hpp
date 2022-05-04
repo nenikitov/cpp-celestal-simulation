@@ -24,7 +24,7 @@ namespace cs
             void graphicsTick();
 
         private:
-            inline const static double M_G = 100;
+            inline const static double M_G = 6.6743;
 
             std::vector<cs::Body> bodies;
     };

@@ -7,7 +7,7 @@
 
 cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity)
     : size(size), position(position), density(density),
-    velocity(0, 0), acceleration(velocity),
+    velocity(velocity), acceleration(0, 0),
     shape(size, Body::getPointCount(size))
 {
     this->shape.setOrigin(size, size);
@@ -26,8 +26,8 @@ cs::Body::Body(double size, cs::Vector2d position, double density)
     : Body(size, density, position, cs::Vector2d(0, 0))
 {};
 
-cs::Body::Body(double size, cs::Vector2d position, cs::Vector2d acceleration)
-    : Body(size, 1, position, acceleration)
+cs::Body::Body(double size, cs::Vector2d position, cs::Vector2d velocity)
+    : Body(size, 1, position, velocity)
 {};
 
 cs::Body::Body(double size, cs::Vector2d position)
