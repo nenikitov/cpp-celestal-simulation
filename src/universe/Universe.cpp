@@ -21,7 +21,10 @@ const std::vector<cs::Body>& cs::Universe::getBodies()
 
 void cs::Universe::physicsTick(double deltaTime)
 {
-
+    for (cs::Body& body : this->bodies)
+    {
+        body.tick(deltaTime);
+    }
 };
 
 void cs::Universe::graphicsTick()

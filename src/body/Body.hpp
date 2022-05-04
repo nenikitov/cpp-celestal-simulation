@@ -16,12 +16,13 @@ namespace cs
         public:
             Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity);
             Body(double size, cs::Vector2d position, double density);
+            Body(double size, cs::Vector2d position, cs::Vector2d velocity);
             Body(double size, cs::Vector2d position);
             Body() = delete;
 
             const sf::Shape& getShape() const;
 
-            void applyForce(const cs::Vector2d& force);
+            void accelerate(const cs::Vector2d& force, double deltaTime);
 
         protected:
             void physicsTick(double deltaTime);

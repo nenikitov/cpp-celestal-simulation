@@ -26,7 +26,6 @@ namespace cs
         private:
             inline const static double M_G = 100;
 
-            //const std::vector<cs::Body> bodies;
             std::vector<cs::Body> bodies;
     };
 };

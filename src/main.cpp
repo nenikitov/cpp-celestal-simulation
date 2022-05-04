@@ -12,8 +12,8 @@
 int main()
 {
     cs::Universe universe({
-        cs::Body(128, cs::Vector2d(480, 500)),
-        cs::Body(20, cs::Vector2d(900, 500))
+        cs::Body(128, cs::Vector2d(480, 500)),                      // Big
+        cs::Body(20, cs::Vector2d(900, 500), cs::Vector2d(0, -1))   // Small
     });
 
     sf::RenderWindow window(sf::VideoMode(960, 1080), "Celestial Simulation");
@@ -29,8 +29,11 @@ int main()
             }
         }
 
-        window.clear();
 
+        universe.tick(1);
+
+
+        window.clear();
         for (cs::Body body : universe.getBodies())
         {
             window.draw(body.getShape());

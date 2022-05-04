@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 #include "Body.hpp"
 
@@ -24,8 +25,11 @@ cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d 
 
 cs::Body::Body(double size, cs::Vector2d position, double density)
     : Body(size, density, position, cs::Vector2d(0, 0))
-{
-};
+{};
+
+cs::Body::Body(double size, cs::Vector2d position, cs::Vector2d acceleration)
+    : Body(size, 1, position, acceleration)
+{};
 
 cs::Body::Body(double size, cs::Vector2d position)
     : Body(size, position, 1)
@@ -50,9 +54,9 @@ void cs::Body::graphicsTick()
     this->shape.setPosition(cs::castVector<double, float>(this->position));
 };
 
-void cs::Body::applyForce(const cs::Vector2d& force)
+void cs::Body::accelerate(const cs::Vector2d& force, double deltaTime)
 {
-    this->acceleration += cs::multiplyVectorScalar(1 / this->getMass(), force);
+    this->acceleration += cs::multiplyVectorScalar(deltaTime / this->getMass(), force);
 };
 
 
