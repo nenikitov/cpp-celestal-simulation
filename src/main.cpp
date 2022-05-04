@@ -6,11 +6,9 @@
 
 int main()
 {
-    Body planet(100, sf::Vector2f(100, 100));
+    Body planet(128, sf::Vector2f(100, 100));
 
     sf::RenderWindow window(sf::VideoMode(500, 500), "Celestial Simulation");
-    sf::CircleShape shape(planet.getSize());
-    shape.setFillColor(sf::Color::Green);
 
     while (window.isOpen())
     {
@@ -22,7 +20,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(planet.getShape());
         window.display();
     }
 
