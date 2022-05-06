@@ -2,6 +2,7 @@
 #define VECTOR_2_H
 
 
+#include <iostream>
 #include <type_traits>
 
 
@@ -43,13 +44,18 @@ namespace cs
 
             bool operator==(const Vector2<T>& other);
             bool operator!=(const Vector2<T>& other);
+
     };
+
 
     typedef Vector2<int>          Vector2i;
     typedef Vector2<unsigned int> Vector2u;
     typedef Vector2<float>        Vector2f;
     typedef Vector2<double>       Vector2d;
 }
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const cs::Vector2<T>& vector);
 
 #include "Vector2.tpp"
 

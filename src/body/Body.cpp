@@ -5,7 +5,7 @@
 
 
 
-cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity)
+cs::Body::Body(double size, double density, cs::sfVector2d position, cs::sfVector2d velocity)
     : size(size), position(position), density(density),
     velocity(velocity), acceleration(0, 0),
     shape(size, Body::getPointCount(size))
@@ -22,21 +22,21 @@ cs::Body::Body(double size, double density, cs::Vector2d position, cs::Vector2d 
 };
 
 
-cs::Body::Body(double size, cs::Vector2d position, double density)
-    : Body(size, density, position, cs::Vector2d(0, 0))
+cs::Body::Body(double size, cs::sfVector2d position, double density)
+    : Body(size, density, position, cs::sfVector2d(0, 0))
 {};
 
-cs::Body::Body(double size, cs::Vector2d position, cs::Vector2d velocity)
+cs::Body::Body(double size, cs::sfVector2d position, cs::sfVector2d velocity)
     : Body(size, 1, position, velocity)
 {};
 
-cs::Body::Body(double size, cs::Vector2d position)
+cs::Body::Body(double size, cs::sfVector2d position)
     : Body(size, position, 1)
 {};
 
 
 
-const cs::Vector2d& cs::Body::getPosition() const
+const cs::sfVector2d& cs::Body::getPosition() const
 {
     return this->position;
 };
@@ -57,7 +57,7 @@ void cs::Body::graphicsTick()
     this->shape.setPosition(cs::vectorCast<double, float>(this->position));
 };
 
-void cs::Body::applyForce(const cs::Vector2d& force, double deltaTime)
+void cs::Body::applyForce(const cs::sfVector2d& force, double deltaTime)
 {
     this->acceleration = cs::vectorMultiplyByScalar(deltaTime / this->getMass(), force);
 };

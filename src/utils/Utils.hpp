@@ -7,7 +7,7 @@
 
 namespace cs
 {
-    typedef sf::Vector2<double> Vector2d;
+    typedef sf::Vector2<double> sfVector2d;
 
     template <typename T>
     sf::Vector2<T> vectorMultiplyByScalar(const T& scalar, const sf::Vector2<T>& vector);

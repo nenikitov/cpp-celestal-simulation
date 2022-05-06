@@ -30,12 +30,12 @@ void cs::Universe::physicsTick(double deltaTime)
             cs::Body& body1 = this->bodies[i];
             cs::Body& body2 = this->bodies[j];
 
-            cs::Vector2d deltaPosition = body2.getPosition() - body1.getPosition();
+            cs::sfVector2d deltaPosition = body2.getPosition() - body1.getPosition();
             double distanceSquared = cs::vectorLengthSquared(deltaPosition);
-            cs::Vector2d forceDirection = cs::vectorToUnit(deltaPosition);
+            cs::sfVector2d forceDirection = cs::vectorToUnit(deltaPosition);
 
             double forceScalar = (Universe::M_G * body1.getMass() * body2.getMass()) / distanceSquared;
-            cs::Vector2d forceVector = cs::vectorMultiplyByScalar(forceScalar, forceDirection);
+            cs::sfVector2d forceVector = cs::vectorMultiplyByScalar(forceScalar, forceDirection);
 
             body1.applyForce(forceVector, deltaTime);
             body2.applyForce(cs::vectorMultiplyByScalar(-1.0, forceVector), deltaTime);

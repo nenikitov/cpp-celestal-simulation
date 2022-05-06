@@ -14,17 +14,17 @@ namespace cs
     class Body : public cs::Entity
     {
         public:
-            Body(double size, double density, cs::Vector2d position, cs::Vector2d velocity);
-            Body(double size, cs::Vector2d position, double density);
-            Body(double size, cs::Vector2d position, cs::Vector2d velocity);
-            Body(double size, cs::Vector2d position);
+            Body(double size, double density, cs::sfVector2d position, cs::sfVector2d velocity);
+            Body(double size, cs::sfVector2d position, double density);
+            Body(double size, cs::sfVector2d position, cs::sfVector2d velocity);
+            Body(double size, cs::sfVector2d position);
             Body() = delete;
 
-            const cs::Vector2d& getPosition() const;
+            const cs::sfVector2d& getPosition() const;
             const sf::Shape& getShape() const;
 
             double getMass() const;
-            void applyForce(const cs::Vector2d& force, double deltaTime);
+            void applyForce(const cs::sfVector2d& force, double deltaTime);
 
         protected:
             void physicsTick(double deltaTime);
@@ -37,9 +37,9 @@ namespace cs
 
             const double size;
             const double density;
-            cs::Vector2d position;
-            cs::Vector2d acceleration;
-            cs::Vector2d velocity;
+            cs::sfVector2d position;
+            cs::sfVector2d acceleration;
+            cs::sfVector2d velocity;
             sf::CircleShape shape;
         private:
             inline static int getPointCount(float size);
